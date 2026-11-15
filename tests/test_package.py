@@ -1,6 +1,7 @@
 import subprocess
 import sys
 from configparser import ConfigParser
+from json import loads
 from pathlib import Path
 from zipfile import ZipFile
 
@@ -11,7 +12,6 @@ import build_plugin  # noqa: E402
 
 def test_release_zip_is_independently_importable(tmp_path):
     archive = build_plugin.build(tmp_path)
-    assert archive.name == "planrecht_berlin-0.1.0.zip"
     root = tmp_path / "profile-plugins"
     with ZipFile(archive) as bundle:
         assert set(bundle.namelist()) == {
@@ -20,6 +20,9 @@ def test_release_zip_is_independently_importable(tmp_path):
         meta = ConfigParser(interpolation=None)
         meta.read_string(bundle.read("planrecht_berlin/metadata.txt").decode("utf-8"))
         assert meta["general"]["name"] == "Planrecht Berlin"
+        assert archive.name == f"planrecht_berlin-{meta['general']['version']}.zip"
+        records = loads(bundle.read("planrecht_berlin/data/plans.json"))
+        assert all(not field.endswith("_sha256") for record in records.values() for field in record)
         bundle.extractall(root)
     program = """
 import sys

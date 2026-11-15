@@ -1,7 +1,7 @@
 # Planrecht Berlin for QGIS
 
-Planrecht Berlin is a standalone experimental QGIS plugin. The first release is
-`planrecht_berlin-0.1.0.zip` and appears as **Planrecht Berlin** in the Plugin Manager,
+Planrecht Berlin is a standalone experimental QGIS plugin. Version 0.1.1 installs from
+`planrecht_berlin-0.1.1.zip` and appears as **Planrecht Berlin** in the Plugin Manager,
 toolbar and results dock.
 
 ![Planrecht Berlin shows selected figures and provisions for the commercial area of 8-2-1](qgis-preview.png)
@@ -9,7 +9,7 @@ toolbar and results dock.
 ## Install and try it
 
 1. In QGIS, open **Plugins → Manage and Install Plugins → Install from ZIP** and choose
-   `planrecht_berlin-0.1.0.zip`.
+   `planrecht_berlin-0.1.1.zip`.
 2. Activate **Planrecht Berlin** and click in Berlin. Try **52.46494611, 13.45485200**
    (latitude, longitude) for the commercial area of 8-2-1 or **52.46527898, 13.45485087**
    for the Grenzallee road area.
@@ -51,8 +51,7 @@ accuracy. Berlin directs users to the original or certified plan for binding inf
 The public `plu_bplan` WFS capabilities advertised plan and documentation records. The geometry
 used here comes from the GE grey fill and the Grenzallee yellow fill on page 1 of the district's
 vector PDF. Berlin's `bplan:b_bp_fs` feature with `planid=0800002-1` supplies the reference outline
-in EPSG:25833 (ETRS89 / UTM zone 33N). The source PDF has SHA-256
-`73402d62127e2a080f6bd16a50953f1d22175e6c0f0c5f8f09577efedfb4ac42`.
+in EPSG:25833 (ETRS89 / UTM zone 33N). The drawing checksum is recorded below.
 [Adopted plan and documents](https://www.berlin.de/ba-neukoelln/politik-und-verwaltung/aemter/stadtentwicklungsamt/stadtplanung/bebauungsplaene/bebauungsplan-festgesetzt/artikel.140405.php) ·
 [Official WFS polygon](https://gdi.berlin.de/services/wfs/bplan?service=WFS&version=2.0.0&request=GetFeature&typeNames=bplan%3Ab_bp_fs&outputFormat=application%2Fjson&srsName=EPSG%3A25833&CQL_FILTER=planid%3D%270800002-1%27)
 
@@ -85,9 +84,23 @@ measured less than 0.01 m² of overlap along the shared boundary.
 [District explanatory report, section 3.8, p. 49](https://www.berlin.de/ba-neukoelln/_assets/dokumente/bebauungsplaene/bebauungsplan-festgesetzt/begruendung/begruendung_8-2-1.pdf#page=49)
 
 The [GeoJSON](planrecht_berlin/data/8-2-1-areas.geojson) can be opened in QGIS. The
-[plan records](planrecht_berlin/data/plans.json) hold adoption and review dates, PDF hashes, source
+[plan records](planrecht_berlin/data/plans.json) hold adoption and review dates, source
 links, area labels, figures, and written provision references. The ZIP includes both. Point containment uses
 the GeoJSON rings and segment distances in local metres, with no additional runtime library.
+
+## Reviewed PDF checksums
+
+The repository records SHA-256 checksums for the public PDFs used in the review.
+
+| Plan document | SHA-256 |
+|---|---|
+| 3-9 drawing | `d11e0a4be99e0c2fb9fe493ff6abd14699ea6a2607cf0bc356d2bc58fb7ba7f0` |
+| 5-8 drawing | `bed25a68bbadf32fc62355b9a7cc7741a90c6bb1496256d7e2b2d4e6fc5565be` |
+| 8-2-1 drawing | `73402d62127e2a080f6bd16a50953f1d22175e6c0f0c5f8f09577efedfb4ac42` |
+| 8-2-1 written provisions | `b5e43dffea5a262c18b2045230f7b13d201e617364e04de61c6a29e4ce85711a` |
+
+QGIS's scanner flagged these strings in the 0.1.0 install ZIP. Version 0.1.1 keeps
+the checksums here for auditing and ships the source links and adoption dates.
 
 ## Build and verify
 
@@ -98,13 +111,13 @@ python build_plugin.py
 python -m pytest -q tests
 ```
 
-The build writes `dist/planrecht_berlin-0.1.0.zip`. Set `RUN_LIVE_BERLIN=1` to enable
+The build writes `dist/planrecht_berlin-0.1.1.zip`. Set `RUN_LIVE_BERLIN=1` to enable
 the live WFS test. To test the actual ZIP in QGIS, run the following with QGIS's bundled
 Python. Set `QT_QPA_PLATFORM=offscreen` for headless use. The smoke test loads the ZIP in
 a temporary plugin directory and profile.
 
 ```sh
-python smoke_qgis.py dist/planrecht_berlin-0.1.0.zip
+python smoke_qgis.py dist/planrecht_berlin-0.1.1.zip
 ```
 
 The standalone preview was tested in QGIS 3.44.15 LTR on Windows. To also check
@@ -116,12 +129,12 @@ Astra High review scored the standalone package 8.9/10.
 
 ## Publish
 
-Push the `berlin/` source and upload the matching `planrecht_berlin-0.1.0.zip` through
-**Upload a plugin**. This creates the Planrecht Berlin listing with its own plugin ID.
+Push the `berlin/` source and upload the matching `planrecht_berlin-0.1.1.zip` using
+**Add version** on the Planrecht Berlin listing.
 Use the build and test commands above for Berlin releases. If tagging a Berlin release,
-use a tag such as `planrecht-berlin-v0.1.0`. The repository's `v*` tag workflow builds
+use a tag such as `planrecht-berlin-v0.1.1`. The repository's `v*` tag workflow builds
 Norme Milano.
-[QGIS Plugin Repository upload](https://plugins.qgis.org/plugins/add/)
+[Planrecht Berlin on the QGIS Plugin Repository](https://plugins.qgis.org/plugins/planrecht_berlin/)
 
 ## Scope and privacy
 
@@ -133,4 +146,4 @@ to the Berlin public B-Plan WFS. Outside-Berlin clicks are handled locally.
 
 The Python plugin is GPL-2.0-or-later. The Berlin state boundary and the public B-Plan WFS
 use Datenlizenz Deutschland – Zero – Version 2.0. The reviewed records cite their source
-plans and retain the version dates and PDF hashes. [Licence](planrecht_berlin/LICENSE)
+plans and retain the version dates. [Licence](planrecht_berlin/LICENSE)

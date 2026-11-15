@@ -2,7 +2,6 @@
   "0300009": {
     "adopted_on": "2011-10-28",
     "reviewed_on": "2026-11-15",
-    "drawing_sha256": "d11e0a4be99e0c2fb9fe493ff6abd14699ea6a2607cf0bc356d2bc58fb7ba7f0",
     "drawing_url": "https://fbinter.stadt-berlin.de/ScansBPlan/03_PA/3-9_Abz.pdf",
     "summary": "The plan distinguishes WA, MI and MK. Building envelopes and height bands matter in WA, while the MK envelope is marked for a maximum of one full storey.",
     "zones": [
@@ -36,7 +35,6 @@
   "0500008": {
     "adopted_on": "2006-05-27",
     "reviewed_on": "2026-11-15",
-    "drawing_sha256": "bed25a68bbadf32fc62355b9a7cc7741a90c6bb1496256d7e2b2d4e6fc5565be",
     "drawing_url": "https://www.berlin.de/ba-spandau/_assets/politik-und-verwaltung/aemter/stadtentwicklungsamt/dokumente/vermessungsamt/bebauungsplaene/05008.pdf",
     "summary": "The residential areas WA 1 and WA 2 each show a maximum of two full storeys. They use different footprint controls.",
     "zones": [
@@ -65,8 +63,6 @@
   "0800002-1": {
     "adopted_on": "2019-05-22",
     "reviewed_on": "2026-11-15",
-    "drawing_sha256": "73402d62127e2a080f6bd16a50953f1d22175e6c0f0c5f8f09577efedfb4ac42",
-    "provisions_sha256": "b5e43dffea5a262c18b2045230f7b13d201e617364e04de61c6a29e4ce85711a",
     "drawing_url": "https://www.berlin.de/ba-neukoelln/_assets/dokumente/bebauungsplaene/bebauungsplan-festgesetzt/planzeichnung/8-2-1.pdf?ts=1612451005",
     "provisions_url": "https://www.berlin.de/ba-neukoelln/_assets/dokumente/bebauungsplaene/bebauungsplan-festgesetzt/textliche-festsetzung/8-2-1_tf.pdf?ts=1612451023",
     "point_lookup": {

@@ -1,7 +1,7 @@
 """Run the published ZIP through QGIS using a temporary profile.
 
 Run with the QGIS-bundled Python. Set QT_QPA_PLATFORM=offscreen for headless use.
-    python smoke_qgis.py dist/planrecht_berlin-0.1.0.zip
+    python smoke_qgis.py dist/planrecht_berlin-0.1.1.zip
 """
 
 import argparse
