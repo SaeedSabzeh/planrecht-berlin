@@ -1,0 +1,103 @@
+{
+  "0300009": {
+    "adopted_on": "2011-10-28",
+    "reviewed_on": "2026-11-15",
+    "drawing_sha256": "d11e0a4be99e0c2fb9fe493ff6abd14699ea6a2607cf0bc356d2bc58fb7ba7f0",
+    "drawing_url": "https://fbinter.stadt-berlin.de/ScansBPlan/03_PA/3-9_Abz.pdf",
+    "summary": "The plan distinguishes WA, MI and MK. Building envelopes and height bands matter in WA, while the MK envelope is marked for a maximum of one full storey.",
+    "zones": [
+      {
+        "label": "WA · Allgemeines Wohngebiet (general residential area)",
+        "rules": [
+          "GFZ (floor-area ratio) 1,2 maximum. II (maximum two full storeys) in Baufelder 1–6.",
+          "TH (eaves height) 6,5 m above the sidewalk in the side bands and OK (top elevation) 10,0 m above the sidewalk in the interior. See written provisions 5 and 6 for exceptions.",
+          "Baulinien (required building lines) and Baugrenzen (building limits) define the building envelopes."
+        ]
+      },
+      {
+        "label": "MI · Mischgebiet (mixed-use area)",
+        "rules": ["GRZ (site coverage ratio) 0,3 and II (maximum two full storeys). The blue Baugrenze defines the building envelope."]
+      },
+      {
+        "label": "MK · Kerngebiet (core area)",
+        "rules": [
+          "I (maximum one full storey) inside the blue building envelope.",
+          "Written provision 3 allows the footprint to be exceeded up to GRZ 0,9 when specified parking spaces and access drives are counted."
+        ]
+      }
+    ],
+    "provisions": [
+      {"number": 3, "page": 1, "title": "Coverage with parking in MK", "text": "In the core area, the permitted footprint may be exceeded up to a site coverage ratio of 0,9 through parking spaces and their access drives."},
+      {"number": 4, "page": 1, "title": "Projections beyond building lines in WA", "text": "Specified architectural features may project by up to 0,5 m, as an exception, beyond building lines A–B, C–D, E–F, G–H, J–K and L–M."},
+      {"number": 5, "page": 1, "title": "Exceptions to the 6,5 m eaves height", "text": "Guardrails can exceed the eaves limit by up to 1,0 m. Specified architectural details can exceed it by up to 0,5 m. Dormers and gable elements may be allowed to exceed it by up to 1,0 m by exception."},
+      {"number": 6, "page": 1, "title": "Exception to the 10,0 m top elevation", "text": "At building lines C–D and L–M, one Frontspieß (gable feature) per line may exceed the top elevation by up to 1,0 m."}
+    ]
+  },
+  "0500008": {
+    "adopted_on": "2006-05-27",
+    "reviewed_on": "2026-11-15",
+    "drawing_sha256": "bed25a68bbadf32fc62355b9a7cc7741a90c6bb1496256d7e2b2d4e6fc5565be",
+    "drawing_url": "https://www.berlin.de/ba-spandau/_assets/politik-und-verwaltung/aemter/stadtentwicklungsamt/dokumente/vermessungsamt/bebauungsplaene/05008.pdf",
+    "summary": "The residential areas WA 1 and WA 2 each show a maximum of two full storeys. They use different footprint controls.",
+    "zones": [
+      {
+        "label": "WA 1 · Allgemeines Wohngebiet (general residential area)",
+        "rules": [
+          "GR (building footprint area) 1.190 m² and II (maximum two full storeys).",
+          "Part of the envelope shows OK (top elevation) 4,5 m above reference point HP 1. Written provision 6 exempts technical rooftop structures.",
+          "Written provision 5 allows the footprint to be exceeded up to GRZ 0,8 when specified parking spaces and access drives are counted."
+        ]
+      },
+      {
+        "label": "WA 2 · Allgemeines Wohngebiet (general residential area)",
+        "rules": [
+          "GRZ (site coverage ratio) 0,3, GFZ (floor-area ratio) 0,6 maximum, II (maximum two full storeys), and o (Offene Bauweise, open building arrangement).",
+          "The blue Baugrenze sets the building limit. Written provision 4 gives special rules for structures extending below the HP 1 reference level."
+        ]
+      }
+    ],
+    "provisions": [
+      {"number": 4, "page": 1, "title": "Lower edge of structures in WA 2", "text": "The threshold is 1,0 m below HP 1. Deeper structures or parts may extend up to 30,0 m each with reference to building limit C–D and must have at least 6,0 m between them."},
+      {"number": 5, "page": 1, "title": "Coverage with parking and access in WA 1", "text": "Parking spaces and access drives can take the footprint above the otherwise permitted area, up to a site coverage ratio of 0,8."},
+      {"number": 6, "page": 1, "title": "Exception to the 4,5 m top elevation", "text": "Technical rooftop structures such as chimneys and ventilation equipment are exempt from the limit of 4,5 m above HP 1."}
+    ]
+  },
+  "0800002-1": {
+    "adopted_on": "2019-05-22",
+    "reviewed_on": "2026-11-15",
+    "drawing_sha256": "73402d62127e2a080f6bd16a50953f1d22175e6c0f0c5f8f09577efedfb4ac42",
+    "provisions_sha256": "b5e43dffea5a262c18b2045230f7b13d201e617364e04de61c6a29e4ce85711a",
+    "drawing_url": "https://www.berlin.de/ba-neukoelln/_assets/dokumente/bebauungsplaene/bebauungsplan-festgesetzt/planzeichnung/8-2-1.pdf?ts=1612451005",
+    "provisions_url": "https://www.berlin.de/ba-neukoelln/_assets/dokumente/bebauungsplaene/bebauungsplan-festgesetzt/textliche-festsetzung/8-2-1_tf.pdf?ts=1612451023",
+    "point_lookup": {
+      "geometry_file": "8-2-1-areas.geojson",
+      "boundary_buffer_m": 2
+    },
+    "point_note": "For the A 100 motorway approval areas and protection zones, see Nachrichtliche Übernahme and Hinweis 1 on the drawing.",
+    "zones": [
+      {
+        "id": "ge",
+        "label": "GE · Gewerbegebiet (commercial area)",
+        "drawing_location": "Planzeichnung, sheet 1 · GE label cluster and blue Baugrenze",
+        "provision_numbers": [3, 5],
+        "rules": [
+          "GRZ (site coverage ratio) 0,6 and GFZ (floor-area ratio) 1,8 maximum.",
+          "OK (top elevation) 57,0 m above NHN (German vertical datum).",
+          "The blue Baugrenze defines the building envelope. Written provision 5 also refers to the parking areas marked St."
+        ]
+      },
+      {
+        "id": "road",
+        "label": "Öffentliche Straßenverkehrsfläche (public road area)",
+        "drawing_location": "Planzeichnung, sheet 1 · yellow Grenzallee area",
+        "provision_numbers": [7],
+        "rules": ["The drawing designates this part of Grenzallee as public road area."]
+      }
+    ],
+    "provisions": [
+      {"number": 3, "page": 1, "title": "Retail in GE", "text": "Retail is generally excluded. Shops serving the area and certain sales outlets linked to a production, processing or repair business can be permitted as exceptions. The latter are subject to a sales-area limit of 10% of the business's floor area and conditions on the products sold."},
+      {"number": 5, "page": 1, "title": "Parking and garages in GE", "text": "Parking spaces are limited to buildable areas and the designated St areas. Garages are limited to the buildable areas."},
+      {"number": 7, "page": 1, "title": "Layout of the public road area", "text": "The internal layout of the public road area is outside the scope of the plan's provisions."}
+    ]
+  }
+}
