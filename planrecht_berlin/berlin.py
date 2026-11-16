@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Saeed Sabzeh
 """Berlin: which binding development plan (Bebauungsplan, B-Plan) covers a point.
 
 Standard library only, like core/services.py. The network call is injectable (`fetch`) so tests

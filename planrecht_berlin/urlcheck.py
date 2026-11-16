@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Saeed Sabzeh
 """URL scheme guard for the urllib-based default network functions (standard library only)."""
 
 import urllib.parse

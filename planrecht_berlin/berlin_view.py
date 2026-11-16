@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Saeed Sabzeh
 """Berlin: where the Berlin lookup applies, and how its result is shown as HTML.
 
 Pure Python (no Qt), so it can be tested without QGIS. The dock calls `render_html` and shows

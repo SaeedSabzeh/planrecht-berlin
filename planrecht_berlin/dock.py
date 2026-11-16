@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Saeed Sabzeh
 """Plan and provision results for the standalone dock."""
 
 from html import escape

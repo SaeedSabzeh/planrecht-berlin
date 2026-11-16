@@ -144,6 +144,10 @@ motorway protection areas and the interaction of overlapping plans require check
 official sources. The tool provides planning guidance. It sends in-city click coordinates
 to the Berlin public B-Plan WFS. Outside-Berlin clicks are handled locally.
 
-The Python plugin is GPL-2.0-or-later. The Berlin state boundary and the public B-Plan WFS
+Copyright (C) 2026 Saeed Sabzeh. The Python plugin is free software: you can
+redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation, either version 2 of the License, or (at your
+option) any later version (GPL-2.0-or-later). It comes with no warranty. See
+[LICENSE](LICENSE). The Berlin state boundary and the public B-Plan WFS
 use Datenlizenz Deutschland – Zero – Version 2.0. The reviewed records cite their source
-plans and retain the version dates. [Licence](planrecht_berlin/LICENSE)
+plans and retain the version dates.

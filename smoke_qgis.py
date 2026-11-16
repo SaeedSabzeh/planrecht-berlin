@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Saeed Sabzeh
 """Run the published ZIP through QGIS using a temporary profile.
 
 Run with the QGIS-bundled Python. Set QT_QPA_PLATFORM=offscreen for headless use.

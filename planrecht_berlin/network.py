@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Saeed Sabzeh
 """Read the Berlin WFS through the QGIS network manager and proxy settings."""
 
 import json
