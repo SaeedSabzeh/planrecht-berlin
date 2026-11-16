@@ -132,7 +132,7 @@ Astra High review scored the standalone package 8.9/10.
 Push the source, tag the release (for example `v0.1.2`), and upload the matching
 `planrecht_berlin-<version>.zip` using **Add version** on the Planrecht Berlin listing.
 Use the build and test commands above for each release. Planrecht Berlin 0.1.0 and 0.1.1
-were developed in the [Norme Milano repository](https://github.com/SaeedSabzeh/QGIS)
+were developed in the [Norme Milano repository](https://github.com/SaeedSabzeh/norme-milano)
 (tag `planrecht-berlin-v0.1.1`); this repository keeps that history.
 [Planrecht Berlin on the QGIS Plugin Repository](https://plugins.qgis.org/plugins/planrecht_berlin/)
 
