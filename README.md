@@ -1,7 +1,7 @@
 # Planrecht Berlin for QGIS
 
-Planrecht Berlin is a standalone experimental QGIS plugin. Version 0.1.1 installs from
-`planrecht_berlin-0.1.1.zip` and appears as **Planrecht Berlin** in the Plugin Manager,
+Planrecht Berlin is a standalone experimental QGIS plugin. Version 0.1.2 installs from
+`planrecht_berlin-0.1.2.zip` and appears as **Planrecht Berlin** in the Plugin Manager,
 toolbar and results dock.
 
 ![Planrecht Berlin shows selected figures and provisions for the commercial area of 8-2-1](qgis-preview.png)
@@ -9,7 +9,7 @@ toolbar and results dock.
 ## Install and try it
 
 1. In QGIS, open **Plugins → Manage and Install Plugins → Install from ZIP** and choose
-   `planrecht_berlin-0.1.1.zip`.
+   `planrecht_berlin-0.1.2.zip`.
 2. Activate **Planrecht Berlin** and click in Berlin. Try **52.46494611, 13.45485200**
    (latitude, longitude) for the commercial area of 8-2-1 or **52.46527898, 13.45485087**
    for the Grenzallee road area.
@@ -111,13 +111,13 @@ python build_plugin.py
 python -m pytest -q tests
 ```
 
-The build writes `dist/planrecht_berlin-0.1.1.zip`. Set `RUN_LIVE_BERLIN=1` to enable
+The build writes `dist/planrecht_berlin-0.1.2.zip`. Set `RUN_LIVE_BERLIN=1` to enable
 the live WFS test. To test the actual ZIP in QGIS, run the following with QGIS's bundled
 Python. Set `QT_QPA_PLATFORM=offscreen` for headless use. The smoke test loads the ZIP in
 a temporary plugin directory and profile.
 
 ```sh
-python smoke_qgis.py dist/planrecht_berlin-0.1.1.zip
+python smoke_qgis.py dist/planrecht_berlin-0.1.2.zip
 ```
 
 The standalone preview was tested in QGIS 3.44.15 LTR on Windows. To also check

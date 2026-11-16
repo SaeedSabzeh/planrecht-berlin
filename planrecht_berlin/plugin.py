@@ -22,6 +22,7 @@ except ImportError:  # Qt 5
     from qgis.PyQt.QtWidgets import QAction
 
 from . import berlin, network
+from .compat import enum
 from .dock import TITLE, PlanDock
 
 MENU = "&Planrecht Berlin"
@@ -37,7 +38,7 @@ class PlanClickTool(QgsMapToolEmitPoint):
         self._marker = None
 
     def canvasReleaseEvent(self, event):  # noqa: N802
-        if event.button() != Qt.MouseButton.LeftButton:
+        if event.button() != enum(Qt, "MouseButton", "LeftButton"):
             return
         point = self.toMapCoordinates(event.pos())
         settings = self._canvas.mapSettings()
@@ -56,7 +57,7 @@ class PlanClickTool(QgsMapToolEmitPoint):
             self._marker.setIconSize(14)
             self._marker.setPenWidth(3)
             self._marker.setColor(QColor("#ad3029"))
-            self._marker.setIconType(QgsVertexMarker.IconType.ICON_CROSS)
+            self._marker.setIconType(enum(QgsVertexMarker, "IconType", "ICON_CROSS"))
         self._marker.setCenter(point)
         self.point_selected.emit(wgs84.y(), wgs84.x())
 
@@ -68,7 +69,7 @@ class PlanClickTool(QgsMapToolEmitPoint):
 
 class PlanQuery(QgsTask):
     def __init__(self, lat, lon, complete):
-        super().__init__(f"{TITLE}: lookup", QgsTask.Flag.CanCancel)
+        super().__init__(f"{TITLE}: lookup", enum(QgsTask, "Flag", "CanCancel"))
         self.lat = lat
         self.lon = lon
         self.complete = complete
@@ -110,7 +111,7 @@ class PlanrechtBerlinPlugin:
 
         self.dock = PlanDock(window)
         self.dock.setWindowIcon(icon)
-        self.iface.addDockWidget(Qt.DockWidgetArea.RightDockWidgetArea, self.dock)
+        self.iface.addDockWidget(enum(Qt, "DockWidgetArea", "RightDockWidgetArea"), self.dock)
         self.dock.hide()
 
         self.tool = PlanClickTool(self.iface.mapCanvas())

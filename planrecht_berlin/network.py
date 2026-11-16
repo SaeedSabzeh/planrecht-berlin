@@ -10,6 +10,7 @@ from qgis.core import QgsFeedback, QgsNetworkAccessManager
 from qgis.PyQt.QtCore import QUrl
 from qgis.PyQt.QtNetwork import QNetworkRequest
 
+from .compat import enum
 from .urlcheck import check_url
 
 
@@ -41,7 +42,7 @@ def fetch_json(url, timeout, is_canceled):
         complete.set()
         watchdog.join()
 
-    status = reply.attribute(QNetworkRequest.Attribute.HttpStatusCodeAttribute)
+    status = reply.attribute(enum(QNetworkRequest, "Attribute", "HttpStatusCodeAttribute"))
     if feedback.isCanceled():
         raise OSError("Request timed out or was canceled")
     if status is None or not 200 <= int(status) < 300:

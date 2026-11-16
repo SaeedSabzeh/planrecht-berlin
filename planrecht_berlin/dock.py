@@ -19,6 +19,7 @@ from qgis.PyQt.QtWidgets import (
 )
 
 from .berlin_view import provision_rows, render_html
+from .compat import enum
 
 TITLE = "Planrecht Berlin"
 
@@ -34,7 +35,7 @@ class PlanDock(QDockWidget):
         self.status.setWordWrap(True)
         layout.addWidget(self.status)
 
-        split = QSplitter(Qt.Orientation.Vertical)
+        split = QSplitter(enum(Qt, "Orientation", "Vertical"))
         layout.addWidget(split, 1)
         plans_box = QGroupBox("Adopted plans / Festgesetzte B-Pläne")
         self.findings = QTextBrowser()
@@ -46,7 +47,7 @@ class PlanDock(QDockWidget):
         self.provisions = QTreeWidget()
         self.provisions.setHeaderHidden(True)
         self.provisions.setWordWrap(True)
-        self.provisions.setTextElideMode(Qt.TextElideMode.ElideNone)
+        self.provisions.setTextElideMode(enum(Qt, "TextElideMode", "ElideNone"))
         self.provisions.itemExpanded.connect(self._expand_provision)
         QVBoxLayout(provisions_box).addWidget(self.provisions)
         split.addWidget(provisions_box)
@@ -69,7 +70,7 @@ class PlanDock(QDockWidget):
             self.provisions.addTopLevelItem(QTreeWidgetItem(["No selected provisions for this point."]))
         for row in rows:
             item = QTreeWidgetItem([f"{row['cite']} · {row['title']}"])
-            item.setData(0, Qt.ItemDataRole.UserRole, row["text"])
+            item.setData(0, enum(Qt, "ItemDataRole", "UserRole"), row["text"])
             item.addChild(QTreeWidgetItem([""]))
             self.provisions.addTopLevelItem(item)
 
@@ -79,7 +80,7 @@ class PlanDock(QDockWidget):
         self.provisions.clear()
 
     def _expand_provision(self, item):
-        text = item.data(0, Qt.ItemDataRole.UserRole)
+        text = item.data(0, enum(Qt, "ItemDataRole", "UserRole"))
         child = item.child(0)
         if text and child is not None and self.provisions.itemWidget(child, 0) is None:
             details = QPlainTextEdit(text)

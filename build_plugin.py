@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parent
 PLUGIN_ID = "planrecht_berlin"
 PACKAGE = ROOT / PLUGIN_ID
 RUNTIME_FILES = (
-    "__init__.py", "berlin.py", "berlin_view.py", "dock.py", "network.py", "plugin.py",
+    "__init__.py", "berlin.py", "berlin_view.py", "compat.py", "dock.py", "network.py", "plugin.py",
     "urlcheck.py", "metadata.txt", "icon.png", "LICENSE", "data/8-2-1-areas.geojson",
     "data/inhalt_baunvo.json", "data/landesgrenze.geojson", "data/plans.json",
 )

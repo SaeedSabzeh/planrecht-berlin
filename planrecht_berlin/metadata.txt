@@ -1,7 +1,7 @@
 [general]
 name=Planrecht Berlin
-version=0.1.1
-qgisMinimumVersion=3.28
+version=0.1.2
+qgisMinimumVersion=3.40
 qgisMaximumVersion=4.99
 description=Click a point in Berlin to find adopted development plans and their official documents.
 about=Planrecht Berlin queries Berlin's public B-Plan WFS for adopted development plans at a clicked point. The experimental preview shows selected figures and provisions for the commercial and public road areas in Neukölln plan 8-2-1. Pankow 3-9 and Spandau 5-8 have plan-level summaries. Check the official plan and amendments for the full rules. The plugin sends in-city click coordinates to Berlin's public map service and uses no account or API key.
@@ -16,7 +16,12 @@ deprecated=False
 hasProcessingProvider=no
 category=Plugins
 tags=berlin,germany,zoning,planning,bebauungsplan
-changelog=0.1.1
+changelog=0.1.2
+    - Moved to its own repository: github.com/SaeedSabzeh/planrecht-berlin (homepage, code and issue links updated)
+    - Minimum QGIS version is now 3.40 (tested on QGIS 3.44 LTR)
+    - Qt enum lookups that work on both Qt5 and Qt6 (QGIS 4)
+    - Copyright and GPL-2.0-or-later notice in every source file
+    0.1.1
     - Keep public source PDF checksums in the repository documentation to avoid a false positive in the QGIS security scan
     0.1.0
     - Standalone Planrecht Berlin preview with live adopted plan lookup and official source links
