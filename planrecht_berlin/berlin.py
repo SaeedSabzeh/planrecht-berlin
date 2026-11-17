@@ -185,6 +185,10 @@ def _read_reviews(source):
             valid = (isinstance(zones, list) and zones and isinstance(provisions, list)
                      and all(isinstance(z["label"], str) and isinstance(z["rules"], list) and z["rules"]
                                    and all(isinstance(rule, str) for rule in z["rules"])
+                                   and isinstance(z.get("figures", []), list)
+                                   and all(isinstance(row, list) and len(row) == 3
+                                           and all(isinstance(cell, str) for cell in row)
+                                           for row in z.get("figures", []))
                                    for z in zones)
                      and len(numbers) == len(provisions)
                      and all(type(p["number"]) is int and isinstance(p["title"], str)

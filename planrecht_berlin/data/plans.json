@@ -8,28 +8,89 @@
       {
         "label": "WA · Allgemeines Wohngebiet (general residential area)",
         "rules": [
-          "GFZ (floor-area ratio) 1,2 maximum. II (maximum two full storeys) in Baufelder 1–6.",
-          "TH (eaves height) 6,5 m above the sidewalk in the side bands and OK (top elevation) 10,0 m above the sidewalk in the interior. See written provisions 5 and 6 for exceptions.",
+          "Written provisions 5 and 6 allow limited exceptions to the heights.",
           "Baulinien (required building lines) and Baugrenzen (building limits) define the building envelopes."
+        ],
+        "figures": [
+          [
+            "GFZ",
+            "1,2 max.",
+            "floor-area ratio"
+          ],
+          [
+            "Vollgeschosse",
+            "II max.",
+            "full storeys, Baufelder 1–6"
+          ],
+          [
+            "TH",
+            "6,5 m ü. Gehweg",
+            "eaves height, side bands"
+          ],
+          [
+            "OK",
+            "10,0 m ü. Gehweg",
+            "top elevation, interior"
+          ]
         ]
       },
       {
         "label": "MI · Mischgebiet (mixed-use area)",
-        "rules": ["GRZ (site coverage ratio) 0,3 and II (maximum two full storeys). The blue Baugrenze defines the building envelope."]
+        "rules": [
+          "The blue Baugrenze defines the building envelope."
+        ],
+        "figures": [
+          [
+            "GRZ",
+            "0,3",
+            "site coverage ratio"
+          ],
+          [
+            "Vollgeschosse",
+            "II max.",
+            "full storeys"
+          ]
+        ]
       },
       {
         "label": "MK · Kerngebiet (core area)",
         "rules": [
-          "I (maximum one full storey) inside the blue building envelope.",
           "Written provision 3 allows the footprint to be exceeded up to GRZ 0,9 when specified parking spaces and access drives are counted."
+        ],
+        "figures": [
+          [
+            "Vollgeschosse",
+            "I max.",
+            "full storeys, inside the blue envelope"
+          ]
         ]
       }
     ],
     "provisions": [
-      {"number": 3, "page": 1, "title": "Coverage with parking in MK", "text": "In the core area, the permitted footprint may be exceeded up to a site coverage ratio of 0,9 through parking spaces and their access drives."},
-      {"number": 4, "page": 1, "title": "Projections beyond building lines in WA", "text": "Specified architectural features may project by up to 0,5 m, as an exception, beyond building lines A–B, C–D, E–F, G–H, J–K and L–M."},
-      {"number": 5, "page": 1, "title": "Exceptions to the 6,5 m eaves height", "text": "Guardrails can exceed the eaves limit by up to 1,0 m. Specified architectural details can exceed it by up to 0,5 m. Dormers and gable elements may be allowed to exceed it by up to 1,0 m by exception."},
-      {"number": 6, "page": 1, "title": "Exception to the 10,0 m top elevation", "text": "At building lines C–D and L–M, one Frontspieß (gable feature) per line may exceed the top elevation by up to 1,0 m."}
+      {
+        "number": 3,
+        "page": 1,
+        "title": "Coverage with parking in MK",
+        "text": "In the core area, the permitted footprint may be exceeded up to a site coverage ratio of 0,9 through parking spaces and their access drives."
+      },
+      {
+        "number": 4,
+        "page": 1,
+        "title": "Projections beyond building lines in WA",
+        "text": "Specified architectural features may project by up to 0,5 m, as an exception, beyond building lines A–B, C–D, E–F, G–H, J–K and L–M."
+      },
+      {
+        "number": 5,
+        "page": 1,
+        "title": "Exceptions to the 6,5 m eaves height",
+        "text": "Guardrails can exceed the eaves limit by up to 1,0 m. Specified architectural details can exceed it by up to 0,5 m. Dormers and gable elements may be allowed to exceed it by up to 1,0 m by exception."
+      },
+      {
+        "number": 6,
+        "page": 1,
+        "title": "Exception to the 10,0 m top elevation",
+        "text": "At building lines C–D and L–M, one Frontspieß (gable feature) per line may exceed the top elevation by up to 1,0 m."
+      }
     ]
   },
   "0500008": {
@@ -41,23 +102,75 @@
       {
         "label": "WA 1 · Allgemeines Wohngebiet (general residential area)",
         "rules": [
-          "GR (building footprint area) 1.190 m² and II (maximum two full storeys).",
-          "Part of the envelope shows OK (top elevation) 4,5 m above reference point HP 1. Written provision 6 exempts technical rooftop structures.",
+          "Written provision 6 exempts technical rooftop structures from the 4,5 m limit.",
           "Written provision 5 allows the footprint to be exceeded up to GRZ 0,8 when specified parking spaces and access drives are counted."
+        ],
+        "figures": [
+          [
+            "GR",
+            "1.190 m²",
+            "building footprint area"
+          ],
+          [
+            "Vollgeschosse",
+            "II max.",
+            "full storeys"
+          ],
+          [
+            "OK",
+            "4,5 m ü. HP 1",
+            "top elevation, part of the envelope"
+          ]
         ]
       },
       {
         "label": "WA 2 · Allgemeines Wohngebiet (general residential area)",
         "rules": [
-          "GRZ (site coverage ratio) 0,3, GFZ (floor-area ratio) 0,6 maximum, II (maximum two full storeys), and o (Offene Bauweise, open building arrangement).",
           "The blue Baugrenze sets the building limit. Written provision 4 gives special rules for structures extending below the HP 1 reference level."
+        ],
+        "figures": [
+          [
+            "GRZ",
+            "0,3",
+            "site coverage ratio"
+          ],
+          [
+            "GFZ",
+            "0,6 max.",
+            "floor-area ratio"
+          ],
+          [
+            "Vollgeschosse",
+            "II max.",
+            "full storeys"
+          ],
+          [
+            "Bauweise",
+            "o (offen)",
+            "open building method"
+          ]
         ]
       }
     ],
     "provisions": [
-      {"number": 4, "page": 1, "title": "Lower edge of structures in WA 2", "text": "The threshold is 1,0 m below HP 1. Deeper structures or parts may extend up to 30,0 m each with reference to building limit C–D and must have at least 6,0 m between them."},
-      {"number": 5, "page": 1, "title": "Coverage with parking and access in WA 1", "text": "Parking spaces and access drives can take the footprint above the otherwise permitted area, up to a site coverage ratio of 0,8."},
-      {"number": 6, "page": 1, "title": "Exception to the 4,5 m top elevation", "text": "Technical rooftop structures such as chimneys and ventilation equipment are exempt from the limit of 4,5 m above HP 1."}
+      {
+        "number": 4,
+        "page": 1,
+        "title": "Lower edge of structures in WA 2",
+        "text": "The threshold is 1,0 m below HP 1. Deeper structures or parts may extend up to 30,0 m each with reference to building limit C–D and must have at least 6,0 m between them."
+      },
+      {
+        "number": 5,
+        "page": 1,
+        "title": "Coverage with parking and access in WA 1",
+        "text": "Parking spaces and access drives can take the footprint above the otherwise permitted area, up to a site coverage ratio of 0,8."
+      },
+      {
+        "number": 6,
+        "page": 1,
+        "title": "Exception to the 4,5 m top elevation",
+        "text": "Technical rooftop structures such as chimneys and ventilation equipment are exempt from the limit of 4,5 m above HP 1."
+      }
     ]
   },
   "0800002-1": {
@@ -75,25 +188,62 @@
         "id": "ge",
         "label": "GE · Gewerbegebiet (commercial area)",
         "drawing_location": "Planzeichnung, sheet 1 · GE label cluster and blue Baugrenze",
-        "provision_numbers": [3, 5],
+        "provision_numbers": [
+          3,
+          5
+        ],
         "rules": [
-          "GRZ (site coverage ratio) 0,6 and GFZ (floor-area ratio) 1,8 maximum.",
-          "OK (top elevation) 57,0 m above NHN (German vertical datum).",
           "The blue Baugrenze defines the building envelope. Written provision 5 also refers to the parking areas marked St."
+        ],
+        "figures": [
+          [
+            "GRZ",
+            "0,6",
+            "site coverage ratio"
+          ],
+          [
+            "GFZ",
+            "1,8 max.",
+            "floor-area ratio"
+          ],
+          [
+            "OK",
+            "57,0 m ü. NHN",
+            "top elevation above NHN datum"
+          ]
         ]
       },
       {
         "id": "road",
         "label": "Öffentliche Straßenverkehrsfläche (public road area)",
         "drawing_location": "Planzeichnung, sheet 1 · yellow Grenzallee area",
-        "provision_numbers": [7],
-        "rules": ["The drawing designates this part of Grenzallee as public road area."]
+        "provision_numbers": [
+          7
+        ],
+        "rules": [
+          "The drawing designates this part of Grenzallee as public road area."
+        ]
       }
     ],
     "provisions": [
-      {"number": 3, "page": 1, "title": "Retail in GE", "text": "Retail is generally excluded. Shops serving the area and certain sales outlets linked to a production, processing or repair business can be permitted as exceptions. The latter are subject to a sales-area limit of 10% of the business's floor area and conditions on the products sold."},
-      {"number": 5, "page": 1, "title": "Parking and garages in GE", "text": "Parking spaces are limited to buildable areas and the designated St areas. Garages are limited to the buildable areas."},
-      {"number": 7, "page": 1, "title": "Layout of the public road area", "text": "The internal layout of the public road area is outside the scope of the plan's provisions."}
+      {
+        "number": 3,
+        "page": 1,
+        "title": "Retail in GE",
+        "text": "Retail is generally excluded. Shops serving the area and certain sales outlets linked to a production, processing or repair business can be permitted as exceptions. The latter are subject to a sales-area limit of 10% of the business's floor area and conditions on the products sold."
+      },
+      {
+        "number": 5,
+        "page": 1,
+        "title": "Parking and garages in GE",
+        "text": "Parking spaces are limited to buildable areas and the designated St areas. Garages are limited to the buildable areas."
+      },
+      {
+        "number": 7,
+        "page": 1,
+        "title": "Layout of the public road area",
+        "text": "The internal layout of the public road area is outside the scope of the plan's provisions."
+      }
     ]
   }
 }

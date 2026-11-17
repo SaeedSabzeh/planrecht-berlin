@@ -148,7 +148,7 @@ def run(app, plugin, iface, screenshot, check_pdfs):
     }
     cases = [
         ("Commercial area", 52.46494611, 13.45485200, "0800002-1", [3, 5],
-         ("GE · Gewerbegebiet", "0,6", "1,8", "57,0 m above NHN")),
+         ("GE · Gewerbegebiet", "0,6", "1,8", "57,0 m ü. NHN")),
         ("Grenzallee", 52.46527898, 13.45485087, "0800002-1", [7],
          ("Öffentliche Straßenverkehrsfläche",)),
         ("Boundary, GE side", 52.46519594, 13.45482240, "0800002-1", [],
@@ -156,14 +156,14 @@ def run(app, plugin, iface, screenshot, check_pdfs):
         ("Boundary, road side", 52.46522130, 13.45482231, "0800002-1", [],
          ("within 2 m of a drawn area boundary",)),
         ("Berlin point without an adopted plan", 52.46451496, 13.45485346, None, [],
-         ("Berlin’s adopted B-Plan layer returned no match",)),
+         ("No adopted B-Plan at this point", "§ 34 BauGB")),
         ("Outside Berlin", 52.389, 13.09, None, [], ("This point is outside Berlin",)),
         ("Unreviewed plan", 52.51195166, 13.40142860, "0100002b", [],
          ("Open the drawing to check the building limits",)),
         ("Pankow 3-9", 52.521016, 13.464183, "0300009", [3, 4, 5, 6],
-         ("Reviewed plan figures by area", "I (maximum one full storey)")),
+         ("Match the clicked location", "I max.")),
         ("Spandau 5-8", 52.523149, 13.176414, "0500008", [4, 5, 6],
-         ("Reviewed plan figures by area", "1.190 m²")),
+         ("Match the clicked location", "1.190 m²")),
     ]
     pdf_urls = set()
     for name, lat, lon, plan_id, provisions, terms in cases:
@@ -181,7 +181,7 @@ def run(app, plugin, iface, screenshot, check_pdfs):
         tree = plugin.dock.provisions
         for index, provision in enumerate(provisions):
             item = tree.topLevelItem(index)
-            assert f"Textliche Festsetzungen {provision} ·" in item.text(0), item.text(0)
+            assert item.text(0).startswith(f"TF {provision} ·"), item.text(0)
             tree.expandItem(item)
             assert tree.itemWidget(item.child(0), 0) is not None, provision
         assert tree.topLevelItemCount() == (len(provisions) or 1)

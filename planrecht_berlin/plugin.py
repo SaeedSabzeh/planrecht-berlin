@@ -21,7 +21,7 @@ try:
 except ImportError:  # Qt 5
     from qgis.PyQt.QtWidgets import QAction
 
-from . import berlin, network
+from . import berlin, early_access, network
 from .compat import enum
 from .dock import TITLE, PlanDock
 
@@ -111,6 +111,11 @@ class PlanrechtBerlinPlugin:
 
         self.dock = PlanDock(window)
         self.dock.setWindowIcon(icon)
+        self.dock.earlyAccessRequested.connect(self._early_access_open)
+        self.dock.earlyAccessDismissed.connect(self._resolve_early_access)
+        count, resolved = early_access.read_state()
+        if early_access.enabled() and not resolved and count >= early_access.SHOW_AFTER:
+            self.dock.show_early_access(True)
         self.iface.addDockWidget(enum(Qt, "DockWidgetArea", "RightDockWidgetArea"), self.dock)
         self.dock.hide()
 
@@ -158,6 +163,26 @@ class PlanrechtBerlinPlugin:
             self.dock.show_error(error)
         else:
             self.dock.show_result(result)
+            if result.get("status") == "plans_found":
+                self._count_lookup()
+
+    def _count_lookup(self):
+        count, resolved = early_access.read_state()
+        count, show = early_access.next_state(count, resolved)
+        early_access.write_count(count)
+        if show:
+            self.dock.show_early_access(True)
+
+    def _early_access_open(self):
+        if early_access.open_signup():
+            self._resolve_early_access()
+        else:  # keep the strip so the user can try again
+            self.dock.status.setText(early_access.OPEN_FAILED % early_access.signup_url())
+
+    def _resolve_early_access(self):
+        early_access.resolve()
+        if self.dock is not None:
+            self.dock.show_early_access(False)
 
     def unload(self):
         self._cancel_query()

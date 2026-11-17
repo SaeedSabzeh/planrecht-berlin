@@ -135,7 +135,8 @@ def test_render_found_escapes_and_links():
     assert 'href="https://mitte.gis-broker.de/bplaene/0100002b.pdf"' in html
     assert "file:" not in html and "javascript:" not in html
     assert "Open the drawing to check the building limits" in html
-    assert "Guidance only, not legal advice" in html
+    assert "OFFICIAL DATA ONLY" in html and "B-Plan &lt;script&gt;" in html
+    assert "Guidance only, not legal advice" in berlin_view.DETAILS_HTML
 
 
 def test_render_no_plan_and_error():
@@ -151,11 +152,11 @@ def test_reviewed_figures_are_shown_by_area_and_linked_to_provisions():
     html = berlin_view.render_html(result)
     assert "Match the clicked location to the area and markings on the drawing." in html
     assert "MK · Kerngebiet (core area)" in html
-    assert "I (maximum one full storey)" in html
-    assert "GFZ (floor-area ratio) 1,2 maximum" in html
+    assert "REVIEWED FIGURES" in html and "adopted 28.10.2011" in html
+    assert "<b>I max.</b>" in html and "<b>1,2 max.</b>" in html  # figures table
     rows = berlin_view.provision_rows(result)
-    assert rows[0]["cite"] == "3-9 · Textliche Festsetzungen 3"
-    assert "0,9" in rows[0]["text"] and "3-9_Abz.pdf" in rows[0]["text"]
+    assert rows[0]["cite"] == "TF 3" and rows[0]["plan"] == "3-9"
+    assert "0,9" in rows[0]["text"] and "3-9_Abz.pdf" in rows[0]["url"]
 
 
 @pytest.mark.parametrize("point,area_id,provisions", [
@@ -235,8 +236,15 @@ def test_overlapping_plans_are_flagged_before_selected_figures():
         "features": [{"properties": props} for props in (NEUKOELLN_PROPS, REAL_PROPS)]
     }))
     html = berlin_view.render_html(result)
-    assert "The dock shows selected figures and provisions" in html
+    assert "2 adopted plans:" in html and "goto:p1" in html
     assert html.index("Several adopted plans intersect this point") < html.index("57,0 m")
+
+
+def test_german_dates_and_trust_labels():
+    assert berlin_view.german_date("2019-05-22") == "22.05.2019"
+    assert berlin_view.german_date("") == ""
+    stale = berlin_view._plan_html({"planname": "x", "review_status": "version_mismatch"})
+    assert "REVIEW OUT OF DATE" in stale
 
 
 @pytest.mark.skipif(not os.environ.get("RUN_LIVE_BERLIN"), reason="set RUN_LIVE_BERLIN=1 to call the live WFS")
@@ -244,3 +252,17 @@ def test_live_point_inside_plan_0100002b():
     result = berlin.lookup(52.511951658333324, 13.40142859916667)
     assert result["status"] == "plans_found"
     assert any(p["planid"] == "0100002b" for p in result["plans"])
+
+
+def test_early_access_strip_counts_only_while_enabled(monkeypatch):
+    pytest.importorskip("qgis")  # early_access reads QgsSettings; runs in the QGIS Python
+    from planrecht_berlin import early_access
+    assert early_access.next_state(0, False) == (0, False)  # off while no page is set
+    monkeypatch.setattr(early_access, "SIGNUP_URL", "https://example.test/pro")
+    count, shows = 0, []
+    for _ in range(4):
+        count, show = early_access.next_state(count, False)
+        shows.append(show)
+    assert shows == [False, False, True, True]
+    assert early_access.next_state(count, True) == (count, False)
+    assert early_access.signup_url() == "https://example.test/pro?src=planrecht-berlin&lang=en"
